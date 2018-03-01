@@ -53,7 +53,7 @@ export class DemoProjectSummaryService implements ProjectSummaryService {
       return this.http.post(summaryEndPoint, this.getPayload(summary), option)
         .map(response => {
           console.log(response.json());
-          return true;
+          return response.json();
         })
         .catch(this.handleError);
     });
