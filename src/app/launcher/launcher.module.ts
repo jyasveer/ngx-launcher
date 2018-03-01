@@ -24,6 +24,9 @@ import { ReleaseStrategyCreateappStepComponent }
 import { TargetEnvironmentCreateappStepComponent }
   from './create-app/targetenvironment-createapp-step/target-environment-createapp-step.component';
 
+/* Dependency Editor */
+import { DependencyEditorCreateappStepComponent } from './create-app/dependency-editor-step/dependency-editor-step.component';
+
 import { GitproviderImportappStepComponent }
   from './import-app/gitprovider-importapp-step/gitprovider-importapp-step.component';
 import { ProjectProgressImportappNextstepComponent }
@@ -58,6 +61,7 @@ export const providers: Provider[] = [
   declarations: [
     ActivateBoosterCreateappNextstepComponent,
     CancelOverlayComponent,
+    DependencyEditorCreateappStepComponent,
     GitproviderCreateappStepComponent,
     GitproviderImportappStepComponent,
     MissionRuntimeCreateappStepComponent,

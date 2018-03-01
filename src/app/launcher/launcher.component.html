@@ -19,14 +19,12 @@
             [styleClass]="'mission-runtime'"
             [title]="'Select Mission & Runtime'">
           </f8launcher-missionruntime-createapp-step>
-          <!-- Place holder for Dependency Checker
+          <!-- Place holder for Dependency Checker -->
           <f8launcher-dependencychecker-createapp-step
-            [hidden]="true"
             [id]="'DependencyChecker'"
             [styleClass]="'dependency-checker'"
             [title]="'Dependency Checker'">
           </f8launcher-dependencychecker-createapp-step>
-          -->
           <f8launcher-targetenvironment-createapp-step #targetEnvStep
             [hidden]="targetEnvironment === 'os'"
             [id]="'TargetEnvironment'"
