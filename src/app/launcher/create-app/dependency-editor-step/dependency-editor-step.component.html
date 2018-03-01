@@ -1,8 +1,8 @@
-<section id="TargetEnvironment" class="f8launcher-section-target-environment f8launcher-container_main--inside"
+<section role="region" aria-label="Dependency Check Section" id="DependencyCheck" class="f8launcher-section-dependency-check f8launcher-container_main--inside"
          [ngClass]="{'hidden': hidden}">
   <div>
     <div class="container-fluid">
-      <h1 snInViewport (onInViewportChange)="launcherComponent.onInViewportChange($event, 'TargetEnvironment')"
+      <h1 snInViewport (onInViewportChange)="launcherComponent.onInViewportChange($event, 'DependencyCheck')"
           [debounce]="500">
           Select Target Environment
         </h1>
