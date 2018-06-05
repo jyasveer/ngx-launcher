@@ -20,7 +20,6 @@ import { LauncherComponent } from '../../launcher.component';
 import { LauncherStep } from '../../launcher-step';
 import { MissionRuntimeService } from '../../service/mission-runtime.service';
 import {Cluster} from '../../model/cluster.model';
-import { Broadcaster } from 'ngx-base';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -31,7 +30,7 @@ import { Broadcaster } from 'ngx-base';
   [
     trigger('toggleAnimation', [
       state('active', style({
-        display: 'inline',
+        display: 'inline'
       })),
       state('inactive', style({
         opacity: '0',
@@ -50,7 +49,6 @@ export class TargetEnvironmentCreateappStepComponent extends LauncherStep implem
   constructor(@Host() public launcherComponent: LauncherComponent,
               private targetEnvironmentService: TargetEnvironmentService,
               private missionRuntimeService: MissionRuntimeService,
-              private broadcaster: Broadcaster,
               public _DomSanitizer: DomSanitizer) {
     super();
   }
@@ -102,7 +100,6 @@ export class TargetEnvironmentCreateappStepComponent extends LauncherStep implem
 
   selectCluster(cluster: Cluster): void {
     this.launcherComponent.summary.cluster = cluster;
-    this.broadcaster.broadcast('cluster', cluster);
   }
 
   updateTargetEnvSelection(target: TargetEnvironment): void {
