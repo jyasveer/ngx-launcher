@@ -10,6 +10,7 @@ import { InViewportModule, WindowRef } from '@thisissoon/angular-inviewport';
 
 import { PopoverModule } from 'ngx-bootstrap';
 import { PipeModule } from 'patternfly-ng/pipe';
+import { Broadcaster } from 'ngx-base';
 
 import { LauncherComponent } from '../../launcher.component';
 import { LauncherStep } from '../../launcher-step';
@@ -114,6 +115,7 @@ describe('GitProviderStepComponent', () => {
         GitproviderCreateappStepComponent
       ],
       providers: [
+        Broadcaster,
         {
           provide: DependencyCheckService, useValue: mockDependencyCheckService
         },
