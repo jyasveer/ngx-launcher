@@ -8,9 +8,9 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { DomSanitizer } from '@angular/platform-browser';
+import { defaults, get } from 'lodash';
 
-import { defaults } from 'lodash';
-
+import { BroadcastService } from '../../service/broadcast.service';
 import { Pipeline } from '../../model/pipeline.model';
 import { DependencyCheckService } from '../../service/dependency-check.service';
 import { ProjectSummaryService } from '../../service/project-summary.service';
@@ -37,7 +37,8 @@ export class ProjectSummaryImportappStepComponent extends LauncherStep implement
   constructor(@Host() public launcherComponent: LauncherComponent,
               private dependencyCheckService: DependencyCheckService,
               private projectSummaryService: ProjectSummaryService,
-              public _DomSanitizer: DomSanitizer) {
+              public _DomSanitizer: DomSanitizer,
+              private broadcaster: BroadcastService) {
     super();
   }
 
@@ -140,6 +141,16 @@ export class ProjectSummaryImportappStepComponent extends LauncherStep implement
           console.log('error in setup: Import', error);
         })
     );
+    const summary = this.launcherComponent.summary;
+    this.broadcaster.broadcast('completeSummaryStep_Create', {
+      pipeline: get(summary, 'pipeline.name', null),
+      application: get(summary, 'dependencyCheck', null),
+      gitHubDetails: {
+        location: get(summary, 'gitHubDetails.organization', null),
+        username: get(summary, 'gitHubDetails.login', null),
+        repository: get(summary, 'gitHubDetails.repository', null)
+      }
+    });
   }
 
   /**
