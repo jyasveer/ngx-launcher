@@ -18,6 +18,8 @@ import { Selection } from '../../model/selection.model';
 import { LauncherComponent } from '../../launcher.component';
 import { LauncherStep } from '../../launcher-step';
 
+import { broadcast } from '../../telemetry.decorator';
+
 @Component({
   encapsulation: ViewEncapsulation.None,
   selector: 'f8launcher-gitprovider-createapp-step',
@@ -112,6 +114,12 @@ export class GitproviderCreateappStepComponent extends LauncherStep implements A
   /**
    * Navigate to next step
    */
+  @broadcast('completeGitProviderStep_Create', {
+    'launcherComponent.summary.gitHubDetails': {
+      location: 'organization',
+      username: 'login',
+      repository: 'repository'
+  }})
   navToNextStep(): void {
     this.launcherComponent.navToNextStep();
     const summary = this.launcherComponent.summary;
