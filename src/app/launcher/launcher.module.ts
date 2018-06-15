@@ -1,4 +1,4 @@
-import { NgModule, Provider } from '@angular/core';
+import { NgModule, Provider, Injector } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-modal';
@@ -98,7 +98,10 @@ export const providers: Provider[] = [
   ]
 })
 export class LauncherModule {
-  constructor() {}
+  static injector: any = null;
+  constructor(injector: Injector) {
+    LauncherModule.injector = injector;
+  }
 }
 
 // Models

@@ -12,7 +12,6 @@ import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable } from 'rxjs';
 import { InViewportModule, WindowRef } from '@thisissoon/angular-inviewport';
-import { Broadcaster } from 'ngx-base';
 
 import { FilterEvent } from 'patternfly-ng/filter';
 import { PipeModule } from 'patternfly-ng/pipe';
@@ -132,7 +131,6 @@ describe('Import ReleaseStrategyStepComponent', () => {
         FakePfngToolbarComponent
       ],
       providers: [
-        Broadcaster,
         {
           provide: PipelineService, useValue: mockPipelineService
         },
