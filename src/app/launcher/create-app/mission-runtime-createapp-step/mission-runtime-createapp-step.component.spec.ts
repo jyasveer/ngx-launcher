@@ -15,6 +15,7 @@ import { MissionRuntimeService } from '../../service/mission-runtime.service';
 import { Mission } from '../../model/mission.model';
 import { Runtime } from '../../model/runtime.model';
 import { TestMissionRuntimeService } from '../../service/mission-runtime.service.spec';
+import { BroadcasterTestProvider } from '../targetenvironment-createapp-step/target-environment-createapp-step.component.spec';
 
 export interface TypeWizardComponent {
   selectedSection: string;
@@ -75,7 +76,7 @@ describe('MissionRuntimeStepComponent', () => {
         {
           provide: LauncherComponent, useValue: mockWizardComponent
         },
-        Broadcaster,
+        { provide: Broadcaster, useValue: BroadcasterTestProvider.broadcaster },
         {
           provide: WindowRef, useValue: window
         }
